@@ -103,6 +103,10 @@ class Cliente(Entidad):
 class Servicio(ABC):
 
     # Constructor
+    # [APORTE NICOLAS]: Definición del constructor de la clase abstracta Servicio. 
+    # Se implementa una validación estricta de parámetros para asegurar que ningún 
+    # servicio se cree con costos inconsistentes, garantizando la estabilidad 
+    # del sistema Software FJ ante datos inválidos.
     def __init__(self, nombre, precio):
 
         # Validación del precio
@@ -114,6 +118,10 @@ class Servicio(ABC):
 
     # Método abstracto
     @abstractmethod
+    # [APORTE NICOLAS]: Definición de métodos abstractos para garantizar el polimorfismo. 
+    # Esto obliga a que cada servicio (Sala, Equipo, Asesoría) implemente su propia 
+    # lógica de costos y descripción, cumpliendo con la arquitectura modular 
+    # exigida en el Anexo 3.
     def calcular_costo(self):
         pass
 
@@ -285,7 +293,11 @@ class Reserva:
 # =====================================================
 
 class SistemaFJ:
-
+# [APORTE NICOLÁS]: Implementación del flujo principal de registro. 
+    # Se usa 'except' para capturar errores específicos, 'else' para confirmar 
+    # el éxito de la operación y 'finally' para asegurar el registro en el log 
+    # de eventos, manteniendo la aplicación estable en todo momento.
+    
     # Constructor
     def __init__(self):
 
